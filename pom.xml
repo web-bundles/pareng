@@ -8,8 +8,22 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.beangle.bundles</groupId>
   <artifactId>beangle-bundles-parent</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <packaging>pom</packaging>
   <name>Beangle Bundles Parent</name>
 
+
+  <build>
+    <outputDirectory>${project.build.directory}/classes/META-INF/resources/${bundle.code}/${project.version}</outputDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${mvn.jar.version}</version>
+        <configuration>
+          <classesDirectory>${project.build.directory}/classes</classesDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
